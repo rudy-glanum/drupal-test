@@ -1,0 +1,8 @@
+**/assets/scss/**/abstracts/**/*.scss
+**/assets/scss/**/vendors/**/*.scss
+**/assets/scss/**/common/**/*.scss
+**/resources/scss/**/common/**/*.scss
+**/resources/scss/**/abstracts/**/*.scss
+**/resources/scss/**/vendors/**/*.scss
+**/resources/sass/**/abstracts/**/*.scss
+**/resources/sass/**/vendors/**/*.scss

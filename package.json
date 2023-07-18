@@ -1,0 +1,75 @@
+{
+    "name": "drupal-custom-test",
+    "version": "1.0.0",
+    "description": "## VHosts",
+    "main": "webpack.mix.js",
+    "scripts": {
+      "prepare": "husky install",
+      "dev": "mix",
+      "watch": "mix watch",
+      "prod": "mix --production",
+      "dev:scss": "npm run dev --chore=dev:scss",
+      "dev:js": "npm run dev --chore=dev:js",
+      "prod:scss": "npm run prod --chore=prod:scss",
+      "prod:js": "npm run prod --chore=prod:js",
+      "lint:scss": "npm run dev --chore=lint:scss",
+      "lint:js": "npm run dev --chore=lint:js",
+      "prettier:scss": "npm run dev --chore=prettier:scss",
+      "prettier:js": "npm run dev --chore=prettier:js",
+      "build": "npm run prod --chore=all --state=build && npm run dev --state=build"
+    },
+    "lint-staged": {
+      "web/themes/**/assets/scss/**/*.scss": [
+        "npx stylelint --config .stylelintrc.json --allow-empty-input --ignore-path .stylelintignore --fix",
+        "npx prettier --config .prettierrc.js --ignore-path .prettierignore --write",
+        "npx stylelint --config .stylelintrc.json --allow-empty-input --ignore-path .stylelintignore --fix"
+      ],
+      "web/themes/**/assets/js/**/*.js": [
+        "npx prettier --config .prettierrc.js --ignore-path .prettierignore --write",
+        "npx eslint --config .eslintrc.js --ignore-path .eslintignore --fix"
+      ]
+    },
+    "devDependencies": {
+      "@commitlint/cli": "^17.1.2",
+      "@commitlint/config-conventional": "^17.1.0",
+      "browser-sync": "^2.27.10",
+      "browser-sync-webpack-plugin": "^2.3.0",
+      "browserslist": "^4.21.4",
+      "eslint": "^8.23.1",
+      "eslint-config-prettier": "^8.5.0",
+      "eslint-config-standard": "^17.0.0",
+      "eslint-plugin-import": "^2.26.0",
+      "eslint-plugin-n": "^15.2.5",
+      "eslint-plugin-node": "^11.1.0",
+      "eslint-plugin-prettier": "^4.2.1",
+      "eslint-plugin-promise": "^6.0.1",
+      "eslint-plugin-simple-import-sort": "^8.0.0",
+      "eslint-plugin-unused-imports": "^2.0.0",
+      "git-precommit-checks": "^3.1.0",
+      "husky": "^8.0.1",
+      "laravel-mix": "^6.0.49",
+      "laravel-mix-replace-in-file": "^0.1.0",
+      "laravel-mix-webp": "^0.1.3",
+      "lint-staged": "^13.0.3",
+      "node-css-mqpacker": "^9.0.0",
+      "prettier": "^2.7.1",
+      "prettier-plugin-twig-melody": "^0.4.6",
+      "replace-in-file": "^6.3.5",
+      "sass": "^1.54.9",
+      "sass-loader": "^13.0.2",
+      "standard": "^17.0.0",
+      "stylelint": "^14.12.0",
+      "stylelint-config-property-sort-order-smacss": "^9.0.0",
+      "stylelint-config-sass-guidelines": "^9.0.1",
+      "stylelint-config-standard": "^28.0.0",
+      "stylelint-order": "^5.0.0",
+      "validate-branch-name": "^1.3.0",
+      "webpack-shell-plugin-next": "^2.2.2"
+    },
+    "keywords": [],
+    "author": "Glanum #FED",
+    "license": "(╯°□°）╯︵ ┻━┻",
+    "dependencies": {
+      "cheerio": "^1.0.0-rc.12"
+    }
+  }

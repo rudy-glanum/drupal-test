@@ -1,0 +1,46 @@
+<?php
+
+use Drupal\Core\Template\Attribute; // this should be at the top of your MY_THEME.theme file
+
+/**
+ * Implements hook_theme_suggestions_page_alter().
+ */
+function colas_valormat_theme_suggestions_page_alter(array &$suggestions, array $variables)
+{
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $suggestions[] = 'page__' . $node->bundle();
+  }
+}
+
+
+function colas_valormat_preprocess_breadcrumb(&$variables)
+{
+  if ($variables['breadcrumb']) {
+    $request = \Drupal::request();
+    $route_match = \Drupal::routeMatch();
+    $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+
+    if (!empty($page_title)) {
+      $variables['breadcrumb'][] = [
+        'text' => $page_title,
+        'attributes' => new Attribute(['class' => ['active']])
+      ];
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess().
+ */
+function colas_valormat_preprocess(array &$variables, $hook)
+{
+  $variables['base_path'] = base_path();
+}
+
+
+function colas_valormat_form_alter(&$form, &$form_state, $form_id)
+{
+  if ($form_id == 'search_block_form') {
+    $form['keys']['#attributes']['placeholder'] = t('Que recherchez-vous ?');
+  }
+}

@@ -1,0 +1,19 @@
+name: drupal custom test
+type: theme
+description: 'Theme Colas/Valormat - Glanum'
+core_version_requirement: ^8 || ^9 || ^10
+# by adding global-styling and global-scripts here, the css/js files in the library become
+# available to every page presented by the theme
+libraries:
+  - drupal_custom_test/global-styling
+  - drupal_custom_test/global-scripts
+
+base theme: stable9
+
+regions:
+  modal: 'Modal'
+  header: 'Header'
+  admin: 'Outils admin'
+  content: 'Content'
+  footer_contact: 'Pied de page - Contact'
+  footer: 'Footer'

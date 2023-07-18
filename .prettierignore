@@ -1,0 +1,4 @@
+**/js/dist/**/*.umd.js.map
+**/js/dist/**/*.umd.ba.js
+**/js/dist/**/*.umd.js
+**/*.min.css

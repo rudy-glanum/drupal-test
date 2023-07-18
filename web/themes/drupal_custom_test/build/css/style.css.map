@@ -1,0 +1,1 @@
+{"version":3,"file":"web/themes/drupal_custom_test/build/css/style.css","mappings":"AAAA;EACE;AACF,C","sources":["webpack://drupal-custom-test/./web/themes/drupal_custom_test/assets/scss/style.scss"],"sourcesContent":["body {\n  background-color: blue !important;\n}\n"],"names":[],"sourceRoot":""}
