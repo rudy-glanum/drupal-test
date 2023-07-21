@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [ "feature/ci" ]
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Compile CSS and Javascript
+      uses: actions/setup-node@v3
+      with:
+          node-version: '16.13'
+      run: |
+        npm install
+        npm run build
+
+    - name: Validate composer.json and composer.lock
+      run: composer validate --strict
+
+    - name: Configure PHP 8.0
+      uses: shivammathur/setup-php@main
+      with:
+        php-version: 8.0
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+
+    # - name: Cache Composer packages
+    #   id: composer-cache
+    #   uses: actions/cache@v3
+    #   with:
+    #     path: vendor
+    #     key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+    #     restore-keys: |
+    #       ${{ runner.os }}-php-
+
+    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
+    # Docs: https://getcomposer.org/doc/articles/scripts.md
+
+    # - name: Run test suite
+    #   run: composer run-script test
