@@ -38,9 +38,9 @@ jobs:
 
       - name: Store artifact for distribution
         uses: actions/upload-artifact@v3
-          with:
-            name: app-build
-            path: ${{ github.sha }}.tar.gz
+        with:
+          name: app-build
+          path: ${{ github.sha }}.tar.gz
 
     # - name: Cache Composer packages
     #   id: composer-cache
