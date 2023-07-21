@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [ "feature/ci" ]
+    branches: ['feature/ci']
 
 jobs:
   build:
@@ -10,28 +10,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Compile CSS and Javascript
-      uses: actions/setup-node@v3
-      with:
+      - name: Compile CSS and Javascript
+        uses: actions/setup-node@v3
+        with:
           node-version: '16.13'
-      run: |
-        npm install
-        npm run build
+        run: |
+          npm install
+          npm run build
 
-    - name: Configure PHP 8.0
-      uses: shivammathur/setup-php@main
-      with:
-        php-version: 8.0
+      - name: Configure PHP 8.0
+        uses: shivammathur/setup-php@master
+        with:
+          php-version: 8.0
 
+      - name: Validate composer.json and composer.lock
+        run: composer validate --strict
 
-    - name: Validate composer.json and composer.lock
-      run: composer validate --strict
-
-    - name: Install dependencies
-      run: composer install --prefer-dist --no-progress
-
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
 
     # - name: Cache Composer packages
     #   id: composer-cache
