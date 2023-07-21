@@ -29,7 +29,18 @@ jobs:
         run: composer validate --strict
 
       - name: Install dependencies
-        run: composer install --prefer-dist --no-progress
+        run: composer install --no-dev --prefer-dist --no-progress
+
+      - name: Create deployment artifact
+        env:
+          GITHUB_SHA: ${{ github.sha }}
+          run: tar -czf "${GITHUB_SHA}".tar.gz --exclude=*.git --exclude=node_modules --exclude=.husky *
+
+      - name: Store artifact for distribution
+        uses: actions/upload-artifact@v3
+          with:
+            name: app-build
+            path: ${{ github.sha }}.tar.gz
 
     # - name: Cache Composer packages
     #   id: composer-cache
