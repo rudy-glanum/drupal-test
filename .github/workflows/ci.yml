@@ -92,7 +92,7 @@ jobs:
           username: ${{ secrets.USERNAME}}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT}}
-          envs: envs: GITHUB_SHA,RELEASE_PATH,ACTIVE_RELEASE_PATH,BASE_PATH
+          envs: GITHUB_SHA,RELEASE_PATH,ACTIVE_RELEASE_PATH,BASE_PATH
           script: |
             echo before activating release
 
