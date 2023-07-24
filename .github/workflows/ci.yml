@@ -116,4 +116,3 @@ jobs:
           envs: GITHUB_SHA,RELEASE_PATH,ACTIVE_RELEASE_PATH,BASE_PATH,ENV_PATH
           script: |
             ln -s -n -f $RELEASE_PATH $ACTIVE_RELEASE_PATH
-            service php8.1-fpm reload
