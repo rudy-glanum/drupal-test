@@ -56,7 +56,7 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.PASSWORD }}
+          password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           source: ${{ github.sha }}.tar.gz
           target: ${{ secrets.server.path }}/artifacts
