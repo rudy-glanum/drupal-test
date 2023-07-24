@@ -88,7 +88,7 @@ jobs:
           ACTIVE_RELEASE_PATH: ${{ secrets.PATH }}/www/current
           BASE_PATH: ${{ secrets.PATH }}
         with:
-          host: ${{ secrets.server.ip }}
+          host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME}}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT}}
@@ -109,7 +109,7 @@ jobs:
           ACTIVE_RELEASE_PATH: ${{ secrets.PATH }}/www/current
           BASE_PATH: ${{ secrets.PATH }}
         with:
-          host: ${{ secrets.server.ip }}
+          host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME}}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT}}
