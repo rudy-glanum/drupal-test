@@ -55,11 +55,12 @@ jobs:
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
+          root-path: /www/
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           source: ${{ github.sha }}.tar.gz
-          target: ${{ secrets.server.path }}/www/artifacts
+          target: ${{ secrets.server.path }}/artifacts
 
     # - name: Cache Composer packages
     #   id: composer-cache
