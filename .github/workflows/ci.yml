@@ -85,7 +85,7 @@ jobs:
         env:
           GITHUB_SHA: ${{ github.sha }}
           RELEASE_PATH: ${{ secrets.PATH }}/releases/${{ github.sha }}
-          ACTIVE_RELEASE_PATH: ${{ secrets.PATH }}/www
+          ACTIVE_RELEASE_PATH: ${{ secrets.PATH }}/www/current
           BASE_PATH: ${{ secrets.PATH }}
         with:
           host: ${{ secrets.HOST }}
@@ -106,7 +106,7 @@ jobs:
         env:
           GITHUB_SHA: ${{ github.sha }}
           RELEASE_PATH: ${{ secrets.PATH }}/releases/${{ github.sha }}
-          ACTIVE_RELEASE_PATH: ${{ secrets.PATH }}/www
+          ACTIVE_RELEASE_PATH: ${{ secrets.PATH }}/www/current/
           BASE_PATH: ${{ secrets.PATH }}
         with:
           host: ${{ secrets.HOST }}
