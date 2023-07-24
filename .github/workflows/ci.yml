@@ -59,7 +59,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           source: ${{ github.sha }}.tar.gz
-          target: ${{ secrets.server.path }}/artifacts
+          target: ${{ secrets.server.path }}/www/artifacts
 
     # - name: Cache Composer packages
     #   id: composer-cache
