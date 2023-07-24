@@ -76,38 +76,38 @@ jobs:
             tar xzf ${{ secrets.PATH}}/artifacts/${GITHUB_SHA}.tar.gz -C "${{ secrets.PATH}}/www/releases/${GITHUB_SHA}"
 
   run-before-hooks:
-    name: "Before hook"
+    name: 'Before hook'
     runs-on: ubuntu-latest
-    needs: [ prepare-release-on-servers ]
+    needs: [prepare-release-on-servers]
     steps:
-    - name: Run before hooks
-      uses: appleboy/ssh-action@master
-      env:
-        GITHUB_SHA: ${{ github.sha }}
-        RELEASE_PATH: ${{ secrets.PATH }}/www/releases/${{ github.sha }}
-        ACTIVE_RELEASE_PATH: ${{ secrets.PATH }}/www/current
-        BASE_PATH: ${{ secrets.PATH }}
-      with:
-        host: ${{ secrets.server.ip }}
-        username: ${{ secrets.USERNAME}}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT}}
-        envs: GITHUB_SHA,RELEASE_PATH,ACTIVE_RELEASE_PATH,BASE_PATH
-        script: |
+      - name: Run before hooks
+        uses: appleboy/ssh-action@master
+        env:
+          GITHUB_SHA: ${{ github.sha }}
+          RELEASE_PATH: ${{ secrets.PATH }}/www/releases/${{ github.sha }}
+          ACTIVE_RELEASE_PATH: ${{ secrets.PATH }}/www/current
+          BASE_PATH: ${{ secrets.PATH }}
+        with:
+          host: ${{ secrets.server.ip }}
+          username: ${{ secrets.USERNAME}}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT}}
+          envs: GITHUB_SHA,RELEASE_PATH,ACTIVE_RELEASE_PATH,BASE_PATH
+          script: |
             echo before activating release
 
   activate-release:
-    name: "Activate release"
+    name: 'Activate release'
     runs-on: ubuntu-latest
-    needs: [ prepare-release-on-servers, run-before-hooks ]
+    needs: [prepare-release-on-servers, run-before-hooks]
     steps:
       - name: Activate release
         uses: appleboy/ssh-action@master
         env:
-        GITHUB_SHA: ${{ github.sha }}
-        RELEASE_PATH: ${{ secrets.PATH }}/www/releases/${{ github.sha }}
-        ACTIVE_RELEASE_PATH: ${{ secrets.PATH }}/www/current
-        BASE_PATH: ${{ secrets.PATH }}
+          GITHUB_SHA: ${{ github.sha }}
+          RELEASE_PATH: ${{ secrets.PATH }}/www/releases/${{ github.sha }}
+          ACTIVE_RELEASE_PATH: ${{ secrets.PATH }}/www/current
+          BASE_PATH: ${{ secrets.PATH }}
         with:
           host: ${{ secrets.server.ip }}
           username: ${{ secrets.USERNAME}}
