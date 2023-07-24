@@ -72,8 +72,8 @@ jobs:
           port: ${{ secrets.PORT }}
           envs: GITHUB_SHA
           script: |
-            mkdir -p "${{ secrets.PATH }}/releases/${GITHUB_SHA}"
-            tar xzf ${{ secrets.PATH}}/artifacts/${GITHUB_SHA}.tar.gz -C "${{ secrets.PATH}}/releases/${GITHUB_SHA}"
+            mkdir -p "${{ secrets.PATH }}/www/releases/${GITHUB_SHA}"
+            tar xzf ${{ secrets.PATH}}/artifacts/${GITHUB_SHA}.tar.gz -C "${{ secrets.PATH}}/www/releases/${GITHUB_SHA}"
 
   run-before-hooks:
     name: 'Before hook'
@@ -84,7 +84,7 @@ jobs:
         uses: appleboy/ssh-action@master
         env:
           GITHUB_SHA: ${{ github.sha }}
-          RELEASE_PATH: ${{ secrets.PATH }}/releases/${{ github.sha }}
+          RELEASE_PATH: ${{ secrets.PATH }}/www/releases/${{ github.sha }}
           ACTIVE_RELEASE_PATH: ${{ secrets.PATH }}/www/current
           BASE_PATH: ${{ secrets.PATH }}
         with:
@@ -105,7 +105,7 @@ jobs:
         uses: appleboy/ssh-action@master
         env:
           GITHUB_SHA: ${{ github.sha }}
-          RELEASE_PATH: ${{ secrets.PATH }}/releases/${{ github.sha }}
+          RELEASE_PATH: ${{ secrets.PATH }}/www/releases/${{ github.sha }}
           ACTIVE_RELEASE_PATH: ${{ secrets.PATH }}/www/current
           BASE_PATH: ${{ secrets.PATH }}
         with:
