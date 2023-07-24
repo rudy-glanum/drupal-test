@@ -42,6 +42,25 @@ jobs:
           name: app-build
           path: ${{ github.sha }}.tar.gz
 
+      # //
+  prepare-release-on-servers:
+    name: "prepare release"
+    runs-on: ubuntu-latest
+    needs: create-deployment-artifacts
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: app-build
+      - name: Upload
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          source: ${{ github.sha }}.tar.gz
+          target: ${{ secrets.server.path }}/artifacts
+
     # - name: Cache Composer packages
     #   id: composer-cache
     #   uses: actions/cache@v3
