@@ -139,3 +139,22 @@ jobs:
           script: |
             echo after activating release
 
+  clean-up:
+    name: 'Clean up'
+    runs-on: ubuntu-latest
+    needs: [prepare-release-on-servers, run-before-hooks, activate-release, run-after-hooks]
+    steps:
+      - name: Run after hooks
+        uses: appleboy/ssh-action@master
+        env:
+          RELEASES_PATH: ${{ secrets.PATH }}/www/releases
+          ARTIFACTS_PATH: ${{ secrets.PATH }}/artifacts
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME}}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT}}
+          envs: RELEASES_PATH
+          script: |
+            cd $RELEASES_PATH && ls -t -1 | tail -n +3 | xargs rm -rf
+            cd $ARTIFACTS_PATH && ls -t -1 | tail -n +3 | xargs rm -rf
