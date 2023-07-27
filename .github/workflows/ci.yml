@@ -138,3 +138,4 @@ jobs:
           envs: GITHUB_SHA,RELEASE_PATH,ACTIVE_RELEASE_PATH,BASE_PATH
           script: |
             echo after activating release
+
