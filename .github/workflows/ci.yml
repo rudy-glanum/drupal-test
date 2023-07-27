@@ -105,7 +105,7 @@ jobs:
         uses: appleboy/ssh-action@master
         env:
           GITHUB_SHA: ${{ github.sha }}
-          RELEASE_PATH: ${{ secrets.PATH }}/www/releases/${{ github.sha }}/web
+          RELEASE_PATH: ./releases/${{ github.sha }}/web
           ACTIVE_RELEASE_PATH: ${{ secrets.PATH }}/www/current
           BASE_PATH: ${{ secrets.PATH }}
         with:
@@ -115,4 +115,5 @@ jobs:
           port: ${{ secrets.PORT}}
           envs: GITHUB_SHA,RELEASE_PATH,ACTIVE_RELEASE_PATH,BASE_PATH,ENV_PATH
           script: |
+            cd ${{ secrets.PATH }}/www
             ln -s -n -f $RELEASE_PATH $ACTIVE_RELEASE_PATH
