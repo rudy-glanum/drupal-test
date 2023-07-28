@@ -1,7 +1,12 @@
 <?php
 use Symfony\Component\Dotenv\Dotenv;
 
-(new Dotenv())->bootEnv(DRUPAL_ROOT . '/../../../.env');
+// $env_path = '';
+if($_SERVER['SERVER_NAME'] == 'local.drupal-test.com') {
+  (new Dotenv())->bootEnv(DRUPAL_ROOT . '/../.env');
+} else {
+  (new Dotenv())->bootEnv(DRUPAL_ROOT . '/../../../.env');
+}
 
 
 // phpcs:ignoreFile
