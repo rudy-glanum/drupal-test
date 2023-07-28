@@ -830,6 +830,7 @@ $databases['default']['default'] = array (
   'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
 );
 
+
 if($_ENV['APP_ENV'] == "prod") {
     $databases['default']['default'] = array (
     'database' => $_ENV['DATABASE'],
