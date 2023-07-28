@@ -1,4 +1,8 @@
 <?php
+use Symfony\Component\Dotenv\Dotenv;
+
+(new Dotenv())->bootEnv(DRUPAL_ROOT . '../../../.env');
+
 
 // phpcs:ignoreFile
 
@@ -813,6 +817,7 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
+
 $databases['default']['default'] = array (
   'database' => 'drupal-test',
   'username' => 'root',
@@ -824,4 +829,18 @@ $databases['default']['default'] = array (
   'driver' => 'mysql',
   'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
 );
+
+if($_ENV['APP_ENV'] == "prod") {
+    $databases['default']['default'] = array (
+    'database' => $_ENV['DATABASE'],
+    'username' => $_ENV['USERNAME'],
+    'password' => $_ENV['PASSWORD'],
+    'prefix' => '',
+    'host' => $_ENV['HOST'],
+    'port' => '3306',
+    'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
+    'driver' => 'mysql',
+    'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
+  );
+}
 $settings['config_sync_directory'] = 'sites/default/files/config_RxCXvWZwvnLhUEiSmUjgjXyfivW0Kbmxes_k9cAnlhLQpWPpLOUVlwKcbuDxrfQDbTJPGwvnCQ/sync';
