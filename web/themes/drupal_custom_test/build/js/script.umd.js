@@ -1,24 +1,17 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./web/themes/drupal_custom_test/assets/js/script.js":
-/*!***********************************************************!*\
-  !*** ./web/themes/drupal_custom_test/assets/js/script.js ***!
-  \***********************************************************/
+/***/ 179:
 /***/ (function() {
 
 
 
 /***/ }),
 
-/***/ "./web/themes/drupal_custom_test/assets/scss/style.scss":
-/*!**************************************************************!*\
-  !*** ./web/themes/drupal_custom_test/assets/scss/style.scss ***!
-  \**************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ 243:
+/***/ (function() {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
 
@@ -93,17 +86,6 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
 /******/ 	}();
 /******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	!function() {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = function(exports) {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	}();
-/******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */
 /******/ 	!function() {
 /******/ 		// no baseURI
@@ -112,8 +94,8 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"/web/themes/drupal_custom_test/build/js/script.umd": 0,
-/******/ 			"web/themes/drupal_custom_test/build/css/style": 0
+/******/ 			144: 0,
+/******/ 			485: 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -165,8 +147,8 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["web/themes/drupal_custom_test/build/css/style"], function() { return __webpack_require__("./web/themes/drupal_custom_test/assets/js/script.js"); })
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["web/themes/drupal_custom_test/build/css/style"], function() { return __webpack_require__("./web/themes/drupal_custom_test/assets/scss/style.scss"); })
+/******/ 	__webpack_require__.O(undefined, [485], function() { return __webpack_require__(179); })
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [485], function() { return __webpack_require__(243); })
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
